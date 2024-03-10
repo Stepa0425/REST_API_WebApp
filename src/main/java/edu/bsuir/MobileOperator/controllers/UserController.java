@@ -1,7 +1,6 @@
 package edu.bsuir.MobileOperator.controllers;
 
-import edu.bsuir.MobileOperator.entities.User;
-import edu.bsuir.MobileOperator.services.UserService;
+import edu.bsuir.MobileOperator.services.IService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("user/")
-public class UserController{
+public class UserController {
     @Autowired
-    private final UserService userService;
-    @GetMapping("0")
-    public User getUser(){
-        return userService.getUser();
+    private IService service;
+
+    @GetMapping("name")
+    public String getFirstUserName() {
+        return service.getName();
     }
+
+    @GetMapping("id")
+    public Long getFirstUserId() {
+        return service.getId();
+    }
+
+
 }
