@@ -23,6 +23,4 @@ public class UserController {
     public Long getFirstUserId() {
         return service.getId();
     }
-
-
 }
