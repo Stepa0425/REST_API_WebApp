@@ -6,7 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class User {
-    private  long id;
+    private  Long id;
     private String name, surName, email, address, password, phone;
     private boolean isAdmin;
     private double balance;
