@@ -11,7 +11,8 @@ public class User {
     private boolean isAdmin;
     private double balance;
 
-    public User(String name, String surName, String email, String address, String password, String phone, boolean isAdmin, double balance) {
+    public User(long id, String name, String surName, String email, String address, String password, String phone, boolean isAdmin, double balance) {
+        this.id = id;
         this.name = name;
         this.surName = surName;
         this.email = email;
