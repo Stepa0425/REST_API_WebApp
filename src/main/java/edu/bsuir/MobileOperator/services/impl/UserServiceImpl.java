@@ -45,6 +45,15 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() ->
                         new ResourceNotFoundException("User isn't exists with id:" + userId));
+
+        user.setName(updatedUser.getName());
+        user.setSurName(updatedUser.getSurName());
+        user.setAddress(updatedUser.getAddress());
+        user.setPhone(updatedUser.getPhone());
+
+        User updatedUserObj = userRepository.save(user);
+        return UserMapper.mapToUserDto(updatedUserObj);
+
     }
 
 }
