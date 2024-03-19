@@ -1,28 +1,15 @@
 package edu.bsuir.MobileOperator.services;
 
-import edu.bsuir.MobileOperator.entities.User;
-import edu.bsuir.MobileOperator.repositories.UserRepository;
-import org.springframework.stereotype.Service;
-import static edu.bsuir.MobileOperator.repositories.UserRepository.userList;
+import edu.bsuir.MobileOperator.dto.UserDto;
 
-@Service
-public class UserService implements IService {
-    UserRepository userRepository;
-    @Override
-    public String getName() {
+import java.util.List;
 
+public interface UserService {
+    UserDto createUser(UserDto userDto);
 
-        return userList.stream()
-                .findFirst()
-                .map(User::getName)
-                .orElse("List is empty!");
+    UserDto getId(Long userId);
+    List<UserDto> getAllUsers();
+    UserDto updateUser(Long userId, UserDto updatedUser);
+    void deleteUser(Long userId);
 
-    }
-
-    @Override
-    public Long getId() {
-        return userList.stream()
-                .findFirst().map(User::getId).orElse(null);
-
-    }
 }

@@ -1,25 +1,22 @@
 package edu.bsuir.MobileOperator.entities;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "User")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String name, surName, email, address, password, phone;
     private boolean isAdmin;
     private double balance;
-
-    public User(long id, String name, String surName, String email, String address, String password, String phone, boolean isAdmin, double balance) {
-        this.id = id;
-        this.name = name;
-        this.surName = surName;
-        this.email = email;
-        this.address = address;
-        this.password = password;
-        this.phone = phone;
-        this.isAdmin = isAdmin;
-        this.balance = balance;
-    }
 }
